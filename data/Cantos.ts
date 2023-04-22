@@ -8,9 +8,6 @@ interface Canto {
     }[]
 }
 
-if (true) {
-}
-
 type CantoData = Canto[]
 
 export const CantosData: CantoData = [
