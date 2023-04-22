@@ -15,6 +15,9 @@
         "sourceType": "module",
         "project": "./tsconfig.json"
     },
-    "rules": { "no-empty": "error", "prettier/prettier": "error" },
+    "rules": {
+        "no-empty": "error",
+        "prettier/prettier": ["error", { "endOfLine": "auto" }]
+    },
     "root": true
 }
