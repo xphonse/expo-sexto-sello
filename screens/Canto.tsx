@@ -1,26 +1,31 @@
-
-import { useTheme } from '@react-navigation/native';
-import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useTheme } from '@react-navigation/native'
+import React from 'react'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
+import { useSelector } from 'react-redux'
 import FooterArrows from '../components/FooterArrows'
 import { CantosData } from '../data/Cantos'
-import useThemeColors from '../hooks/useThemeColors';
+import useThemeColors from '../hooks/useThemeColors'
 
-const Contenido = props => {    
-    const {themeColors} = useThemeColors();
-    const {fontSize} = useSelector((state)=> state.ui)
-    let newText = props.datos.texto.split('/n').map((text,i) => {
-        return (<View key={i} style={styles.parrafoView}>
-
-            <Text style={{...styles.linea,color:themeColors.color,fontSize:fontSize}}>
-                {text}
-            </Text>
-        </View>)
+const Contenido = (props) => {
+    const { themeColors } = useThemeColors()
+    const { fontSize } = useSelector((state) => state.ui)
+    let newText = props.datos.texto.split('/n').map((text, i) => {
+        return (
+            <View key={i} style={styles.parrafoView}>
+                <Text
+                    style={{
+                        ...styles.linea,
+                        color: themeColors.color,
+                        fontSize: fontSize,
+                    }}
+                >
+                    {text}
+                </Text>
+            </View>
+        )
     })
 
     return (
-
         <View style={styles.parrafoView}>
             <Text style={styles.parrafo}></Text>
             {newText}
@@ -28,38 +33,43 @@ const Contenido = props => {
     )
 }
 
-const Canto = props => {
-
-    const idOracion = props.route.params.id;
-    const aFiltrar2 = CantosData.filter(Canto => Canto.id == idOracion)
+const Canto = (props) => {
+    const idOracion = props.route.params.id
+    const aFiltrar2 = CantosData.filter((Canto) => Canto.id == idOracion)
     const aFiltrar3 = aFiltrar2[0].contenido
-    const noData=CantosData.length;
+    const noData = CantosData.length
 
-    const {themeColors} = useThemeColors()
-    
+    const { themeColors } = useThemeColors()
 
-    const Parrafos = () => aFiltrar3.map((oracion,i) =>
-        <View key={i} >
-            <Contenido datos={oracion} key={Math.random()} />
-        </View>
-    );
+    const Parrafos = () =>
+        aFiltrar3.map((oracion, i) => (
+            <View key={i}>
+                <Contenido datos={oracion} key={Math.random()} />
+            </View>
+        ))
     return (
         <View style={{ flex: 1, backgroundColor: themeColors.backgroundColor }}>
-            <ScrollView contentContainerStyle={{flexGrow: 1,padding:10}}>
+            <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 10 }}>
                 <View style={styles.container}>
-                    <Text style={{...styles.title,color:themeColors.color}}>{aFiltrar2[0].pag} - {aFiltrar2[0].titulo}</Text>
+                    <Text style={{ ...styles.title, color: themeColors.color }}>
+                        {aFiltrar2[0].pag} - {aFiltrar2[0].titulo}
+                    </Text>
                     <Parrafos />
                 </View>
             </ScrollView>
-            <FooterArrows sendTo='Canto' id={props.route.params.id} navigation={props.navigation} noData={noData} />
+            <FooterArrows
+                sendTo="Canto"
+                id={props.route.params.id}
+                navigation={props.navigation}
+                noData={noData}
+            />
         </View>
-
-    );
+    )
 }
 
-export const cantoScreenOptions = navData => {
+export const cantoScreenOptions = (navData) => {
     return {
-        title: "CANTOS"
+        title: 'CANTOS',
     }
 }
 
@@ -73,21 +83,19 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         textAlign: 'center',
-        width:'100%'
+        width: '100%',
     },
     parrafo: {
         textAlign: 'justify',
         lineHeight: 16,
     },
     linea: {
-        textAlign: 'justify',        
+        textAlign: 'justify',
     },
     parrafoView: {
         paddingVertical: 2,
         width: '100%',
     },
-
-
-});
+})
 
 export default Canto

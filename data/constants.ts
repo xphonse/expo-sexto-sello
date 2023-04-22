@@ -1,6 +1,6 @@
 const appConstants = {
-    initialFontSize:12,
-    initialThemeMode: 'light'
+    initialFontSize: 12,
+    initialThemeMode: 'light',
 }
 
-export default appConstants;
+export default appConstants
