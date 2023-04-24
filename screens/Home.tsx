@@ -15,7 +15,7 @@ const Home = (props) => {
 
     useEffect(() => {
         const readStorage = async () => {
-            let fontSize = await AsyncStorage.getItem('fontSize')
+            let fontSize: number = +(await AsyncStorage.getItem('fontSize'))
             let themeMode = await AsyncStorage.getItem('themeMode')
             if (fontSize == null || themeMode == null) {
                 fontSize = appConstants.initialFontSize
@@ -24,7 +24,7 @@ const Home = (props) => {
                 await AsyncStorage.setItem('themeMode', themeMode)
             }
             console.log({ fontSize }, { themeMode })
-            dispatch(setFontSizeByValue(parseInt(fontSize)))
+            dispatch(setFontSizeByValue(fontSize))
             dispatch(setThemeMode(themeMode))
         }
         readStorage()
