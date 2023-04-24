@@ -19,13 +19,13 @@ const OracionScreen = (props) => {
         setOracion(oracion)
     })
 
-    const Parrafo = ({ parrafo }) => {
+    const Parrafo = ({ parrafo }: { parrafo: string[] }) => {
         return (
             <View style={styles.parrafoView}>
-                {parrafo.texto.map((texto, i) => (
+                {parrafo.map((texto, i: number) => (
                     <Text
                         key={i}
-                        style={{ ...styles.parrafo, fontSize: fontSize }}
+                        style={{ ...styles.parrafoText, fontSize: fontSize }}
                     >
                         {texto}
                     </Text>
@@ -55,7 +55,7 @@ const OracionScreen = (props) => {
             textAlign: 'center',
             width: '100%',
         },
-        parrafo: {
+        parrafoText: {
             color: themeColors.color,
             textAlign: 'justify',
         },
@@ -86,10 +86,9 @@ const OracionScreen = (props) => {
                     >
                         {oracion.pag} - {oracion.titulo}
                     </Text>
-                    {oracion.parrafos &&
-                        oracion.parrafos.map((parrafo, i) => (
-                            <Parrafo key={i} parrafo={parrafo} />
-                        ))}
+                    {oracion.parrafos.map((parrafo, i) => (
+                        <Parrafo key={i} parrafo={parrafo} />
+                    ))}
                 </View>
             </ScrollView>
             <FooterArrows
