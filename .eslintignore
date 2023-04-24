@@ -4,3 +4,4 @@ expo-shared/
 .vscode/
 package.json
 package-lock.json
+babel.config.js

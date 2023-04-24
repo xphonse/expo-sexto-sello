@@ -24,7 +24,7 @@ const onShare = async () => {
     }
 }
 
-const Informacion = (props) => {
+const Informacion = () => {
     const { themeColors } = useThemeColors()
     const InfoContainer = ({ children }) => (
         <View style={styles.informacionContainer}>
@@ -54,7 +54,7 @@ const Informacion = (props) => {
                     Para cualquier duda, aclaración, sugerencia, corrección de
                     errores o aporte: Por favor comunicarse al correo:{' '}
                 </InfoContainer>
-                <View style={styles.correoContainer}>
+                <View>
                     <Text
                         style={{
                             ...styles.informacionText,
@@ -77,11 +77,7 @@ const Informacion = (props) => {
     )
 }
 
-export const homeScreenOptions = (navData) => {
-    return {
-        headerShown: false,
-    }
-}
+export const homeScreenOptions = () => ({ headerShown: false })
 
 const styles = StyleSheet.create({
     container: {

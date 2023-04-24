@@ -1,4 +1,3 @@
-import { useTheme } from '@react-navigation/native'
 import React from 'react'
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import { useSelector } from 'react-redux'
@@ -9,7 +8,7 @@ import useThemeColors from '../hooks/useThemeColors'
 const Contenido = (props) => {
     const { themeColors } = useThemeColors()
     const { fontSize } = useSelector((state) => state.ui)
-    let newText = props.datos.texto.split('/n').map((text, i) => {
+    const newText = props.datos.texto.split('/n').map((text, i) => {
         return (
             <View key={i} style={styles.parrafoView}>
                 <Text
@@ -67,11 +66,7 @@ const Canto = (props) => {
     )
 }
 
-export const cantoScreenOptions = (navData) => {
-    return {
-        title: 'CANTOS',
-    }
-}
+export const cantoScreenOptions = () => ({ title: 'CANTOS' })
 
 const styles = StyleSheet.create({
     container: {
