@@ -25,9 +25,10 @@ const Oraciones = (props) => {
     )
 }
 
-export const oracionesScreenOptions = (navData) => {
-    return { headerShown: true, title: 'LISTADO DE ORACIONES' }
-}
+export const oracionesScreenOptions = () => ({
+    headerShown: true,
+    title: 'LISTADO DE ORACIONES',
+})
 
 const styles = StyleSheet.create({
     container: {

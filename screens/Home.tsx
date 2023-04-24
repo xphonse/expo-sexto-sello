@@ -16,7 +16,7 @@ const Home = (props) => {
     useEffect(() => {
         const readStorage = async () => {
             let fontSize = await AsyncStorage.getItem('fontSize')
-            let themeMode = await AsyncStorage.getItem("themeMode")
+            let themeMode = await AsyncStorage.getItem('themeMode')
             if (fontSize == null || themeMode == null) {
                 fontSize = appConstants.initialFontSize
                 themeMode = appConstants.initialThemeMode
@@ -67,11 +67,7 @@ const Home = (props) => {
     )
 }
 
-export const homeScreenOptions = (navData) => {
-    return {
-        headerShown: false,
-    }
-}
+export const homeScreenOptions = () => ({ headerShown: false })
 
 const styles = StyleSheet.create({
     container: {

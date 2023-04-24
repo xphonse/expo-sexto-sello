@@ -1,12 +1,5 @@
 import React from 'react'
-import {
-    StyleSheet,
-    Text,
-    View,
-    FlatList,
-    TouchableOpacity,
-    ScrollView,
-} from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import MainFrame from '../components/MainFrame'
 
 import { CantosData } from '../data/Cantos'
@@ -57,12 +50,10 @@ const Boton = (props) => {
     )
 }
 
-export const cantosScreenOptions = (navData) => {
-    return {
-        headerShown: true,
-        title: 'LISTADO DE CANTOS',
-    }
-}
+export const cantosScreenOptions = () => ({
+    headerShown: true,
+    title: 'LISTADO DE CANTOS',
+})
 
 const styles = StyleSheet.create({
     container: {

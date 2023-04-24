@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { StyleSheet } from 'react-native'
+import { ColorValue } from 'react-native'
 import { useSelector } from 'react-redux'
 
 const useThemeColors = () => {
@@ -18,14 +18,19 @@ const useThemeColors = () => {
 
 export default useThemeColors
 
+interface ThemeType {
+    color: ColorValue
+    backgroundColor: ColorValue
+}
+
 const darkColor = '#333'
 
-const LightColors = StyleSheet.create({
-    color: 'black',
+const LightColors: ThemeType = {
+    color: '#000000',
     backgroundColor: 'white',
-})
+}
 
-const DarkColors = StyleSheet.create({
+const DarkColors: ThemeType = {
     color: 'white',
     backgroundColor: darkColor,
-})
+}

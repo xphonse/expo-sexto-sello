@@ -1,4 +1,4 @@
-interface OracionData {
+export interface OracionData {
     id: string
     pag: string
     titulo: string

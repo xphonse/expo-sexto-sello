@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
-import { OracionesData } from '../data/Oraciones'
+import { OracionData, OracionesData } from '../data/Oraciones'
 import FooterArrows from '../components/FooterArrows'
 import { useSelector } from 'react-redux'
 import useThemeColors from '../hooks/useThemeColors'
@@ -10,7 +10,7 @@ const getOracion = (id) => {
 }
 
 const OracionScreen = (props) => {
-    const [oracion, setOracion] = useState({})
+    const [oracion, setOracion] = useState<OracionData>()
     const { themeColors } = useThemeColors()
     const { fontSize } = useSelector((state) => state.ui)
 
@@ -66,6 +66,8 @@ const OracionScreen = (props) => {
         },
     })
 
+    if (!oracion) return <></>
+
     return (
         <View style={{ flex: 1 }}>
             <ScrollView
@@ -100,11 +102,6 @@ const OracionScreen = (props) => {
     )
 }
 
-export const oracionScreenOptions = (navData) => {
-    const oracion = getOracion(navData.route.params.id)
-    return {
-        title: 'ORACIÓN',
-    }
-}
+export const oracionScreenOptions = () => ({ title: 'ORACIÓN' })
 
 export default OracionScreen
