@@ -2,7 +2,7 @@
     "expo": {
         "name": "Sexto Sello",
         "slug": "sexto-sello",
-        "version": "3.0.7",
+        "version": "3.0.8",
         "orientation": "portrait",
         "icon": "./assets/iconWhite.png",
         "userInterfaceStyle": "light",
@@ -12,7 +12,8 @@
             "backgroundColor": "#ffffff"
         },
         "updates": {
-            "fallbackToCacheTimeout": 0
+            "fallbackToCacheTimeout": 0,
+            "url": "https://u.expo.dev/59ad4a72-b5ea-409a-97d1-b7b80087d440"
         },
         "assetBundlePatterns": ["**/*"],
         "ios": {
@@ -20,15 +21,12 @@
         },
         "android": {
             "package": "com.sextosello.cantos_y_coros",
-            "versionCode": 300007,
+            "versionCode": 300008,
             "adaptiveIcon": {
                 "foregroundImage": "./assets/adaptive-icon.png",
                 "backgroundColor": "#FFFFFF"
             },
-            "permissions": [],
-            "blockedPermissions": [
-                "android.permission.REQUEST_INSTALL_PACKAGES "
-            ]
+            "permissions": []
         },
         "web": {
             "favicon": "./assets/favicon.png"
@@ -37,6 +35,9 @@
             "eas": {
                 "projectId": "59ad4a72-b5ea-409a-97d1-b7b80087d440"
             }
+        },
+        "runtimeVersion": {
+            "policy": "sdkVersion"
         }
     }
 }
